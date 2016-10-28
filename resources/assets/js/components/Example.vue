@@ -17,6 +17,9 @@
 <script>
     export default {
         mounted() {
+            this.$http.get('/').then(function(response){
+                console.log(response.data);
+            });
             console.log('Component ready.')
         }
     }
