@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.admin.master')
 
-        <title>Laravel</title>
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Dashboard</div>
 
-
-        <script>
-            window.Laravel = <?php echo json_encode([
-                    'csrfToken' => csrf_token(),
-            ]); ?>
-        </script>
-    </head>
-    <body>
-        <div class="container" id="app">
-            <example></example>
+                    <div class="panel-body">
+                        Welcome to Alif Template
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-        <script src="js/app.js"></script>
-    </body>
-</html>
+    </div>
+@endsection
