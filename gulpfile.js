@@ -26,6 +26,8 @@ elixir(function(mix){
         vDir.vendor + '/AdminLTE/dist/css/skins/skin-green-light.css'
     ], 'public/css/all.css');
 
+    mix.webpack('app.js');
+
     mix.scripts([
         vDir.vendor + '/jquery/jquery.js',
         vDir.vendor + '/AdminLTE/plugins/jQueryUI/jquery-ui.js',
@@ -33,8 +35,6 @@ elixir(function(mix){
         vDir.vendor + '/AdminLTE/plugins/slimScroll/jquery.slimscroll.js',
         vDir.vendor + '/AdminLTE/dist/js/app.js'
     ], 'public/js/all.js');
-
-    mix.webpack('app.js');
 
     mix.copy(vDir.vendor + '/font-awesome/fonts', 'public/fonts')
         .copy(vDir.vendor + '/bootstrap/fonts', 'public/fonts')
