@@ -13,7 +13,30 @@ require('laravel-elixir-vue-2');
  |
  */
 
+const vDir = {
+    'vendor': "./resources/assets/vendor"
+}
+
 elixir(function(mix){
-    mix.sass('app.scss')
-        .webpack('app.js');
+
+    mix.styles([
+        vDir.vendor + '/bootstrap/css/bootstrap.css',
+        vDir.vendor + '/font-awesome/css/font-awesome.css',
+        vDir.vendor + '/AdminLTE/dist/css/AdminLTE.css',
+        vDir.vendor + '/AdminLTE/dist/css/skins/skin-green-light.css'
+    ], 'public/css/all.css');
+
+    mix.scripts([
+        vDir.vendor + '/jquery/jquery.js',
+        vDir.vendor + '/AdminLTE/plugins/jQueryUI/jquery-ui.js',
+        vDir.vendor + '/AdminLTE/plugins/fastclick/fastclick.js',
+        vDir.vendor + '/AdminLTE/plugins/slimScroll/jquery.slimscroll.js',
+        vDir.vendor + '/AdminLTE/dist/js/app.js'
+    ], 'public/js/all.js');
+
+    mix.webpack('app.js');
+
+    mix.copy(vDir.vendor + '/font-awesome/fonts', 'public/fonts')
+        .copy(vDir.vendor + '/bootstrap/fonts', 'public/fonts')
+        .copy(vDir.vendor + '/AdminLTE/dist/img', 'public/img');
 });
