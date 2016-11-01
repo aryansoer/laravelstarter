@@ -4,10 +4,10 @@
 
     <div class="wrapper" id="app">
         <!-- Header -->
-        @include('layouts.admin.header')
+        @include('layouts.adminlte.header')
 
         <!-- Sidebar -->
-        @include('layouts.admin.sidebar')
+        @include('layouts.adminlte.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -34,7 +34,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Footer -->
-        @include('layouts.admin.footer')
+        @include('layouts.adminlte.footer')
     </div>
 
 <!-- Base Footer Here -->

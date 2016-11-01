@@ -1,13 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.visitor')
 
 <!-- Main Content -->
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Reset Password</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -25,8 +28,8 @@
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -40,7 +43,9 @@
                         </div>
                     </form>
                 </div>
+                <!-- /.box-body -->
             </div>
+
         </div>
     </div>
 </div>

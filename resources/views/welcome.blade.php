@@ -1,4 +1,4 @@
-@extends('layouts.visitor.master')
+@extends('layouts.visitor')
 
 @section('title')
     Welcome Page
@@ -19,7 +19,7 @@
             <h3 class="box-title">Blank Box</h3>
         </div>
         <div class="box-body">
-            Welcome To AlifTemplate
+            Welcome To LaravelStarter
         </div>
         <!-- /.box-body -->
     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.adminlte')
 
 @section('content')
     <div class="panel panel-default">
