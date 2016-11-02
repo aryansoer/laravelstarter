@@ -79,7 +79,7 @@
                                 <li class="user-header">
                                     <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
-                                        Alexander Pierce - Web Developer
+                                        {{ Auth::user()->name }} - Web Developer
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->

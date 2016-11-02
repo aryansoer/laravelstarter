@@ -1,8 +1,15 @@
 @extends('layouts.visitor')
 
-@section('title')
-    Welcome Page
+@section('title', 'Welcome Page')
+
+@section('content-header')
+    <h1>
+        Content Header
+        <small>simple description</small>
+    </h1>
 @endsection
+
+@section('breadcrumbs', Breadcrumbs::render('main'))
 
 @section('content')
 
