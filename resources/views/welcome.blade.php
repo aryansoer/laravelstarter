@@ -27,6 +27,8 @@
         </div>
         <div class="box-body">
             Welcome To LaravelStarter
+            <roles-list></roles-list>
+            <example></example>
         </div>
         <!-- /.box-body -->
     </div>
