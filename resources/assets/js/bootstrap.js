@@ -10,6 +10,20 @@ window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 
+
+/**
+ * We'll load toastr plugin which provides notifications.
+ * More info at: https://github.com/CodeSeven/toastr
+ */
+
+window.toastr = require('toastr');
+toastr.options = {
+    "closeButton": true,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": true
+}
+
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
  * using reactive data binding and reusable components. Vue's API is clean

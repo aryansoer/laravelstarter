@@ -27,8 +27,8 @@
         </div>
         <div class="box-body">
             Welcome To LaravelStarter
-            <roles-list></roles-list>
-            <example></example>
+            <role-creator box-type="box-success"></role-creator>
+            <roles-list box-type="box-primary"></roles-list>
         </div>
         <!-- /.box-body -->
     </div>

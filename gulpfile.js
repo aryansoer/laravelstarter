@@ -23,7 +23,8 @@ elixir(function(mix){
         vDir.vendor + '/bootstrap/css/bootstrap.css',
         vDir.vendor + '/font-awesome/css/font-awesome.css',
         vDir.vendor + '/AdminLTE/dist/css/AdminLTE.css',
-        vDir.vendor + '/AdminLTE/dist/css/skins/skin-green-light.css'
+        vDir.vendor + '/AdminLTE/dist/css/skins/skin-green-light.css',
+        vDir.vendor + '/toastr/css/toastr.css'
     ], 'public/css/all.css');
 
     mix.webpack('app.js');

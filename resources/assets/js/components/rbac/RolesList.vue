@@ -1,11 +1,11 @@
 <template>
-    <div class="box box-default">
+    <div class="box" :class="[boxType]">
         <div class="box-header with-border">
-            <h3 class="box-title">Bordered Table</h3>
+            <h3 class="box-title">Roles list</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-            <table class="table table-bordered table-condensed table-striped">
+            <table class="table table-bordered table-condensed table-striped table-hover">
                 <tbody>
                     <tr>
                         <th style="width: 10px">#</th>
@@ -13,7 +13,7 @@
                         <th>Label</th>
                     </tr>
 
-                    <tr v-for="(role, index) in list" :key="role.id" @click="chooseRole(role.id)">
+                    <tr v-for="(role, index) in list" :key="role.id" @click="chooseRole(role)">
                         <td>{{ index+1 }}</td>
                         <td>{{ role.name }}</td>
                         <td>{{ role.display_name }}</td>
@@ -27,9 +27,12 @@
                 <li><a href="#">«</a></li>
                 <li><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
                 <li><a href="#">»</a></li>
             </ul>
+        </div>
+
+        <div class="overlay" v-show="isLoading">
+            <i class="fa fa-refresh fa-spin"></i>
         </div>
     </div>
 
@@ -37,9 +40,15 @@
 
 <script>
     export default {
-        delimiters: ['${', '}'],
 
-        data: function () {
+        props: {
+            boxType: {
+                type: String,
+                default: 'box-default'
+            }
+        },
+
+        data() {
             return {
                 list: [],
                 isLoading: false
@@ -47,27 +56,24 @@
         },
 
         methods: {
-            getList: function () {
-                var self = this, url = laroute.route('rbac::roles.list');
+            getList() {
+                let url = laroute.route('rbac::roles.list');
 
-                self.isLoading = true;
-
-                self.$http.post(url).then(response => {
-                    self.list = response.data;
+                this.isLoading = true;
+                this.$http.post(url).then(response => {
+                    this.list = response.data;
+                    this.isLoading = false;
                 }, response => {
-
+                    this.isLoading = false;
                 });
             },
-
-            chooseRole: function (role_id) {
-                console.log('Role was sent: ' + role_id);
-
-                this.$store.state.eventBus.$emit('rbac::role-was-chosen', role_id);
+            chooseRole(role) {
+                this.$store.state.eventBus.$emit('rbac::role-was-chosen', role);
             }
         },
 
         mounted() {
             this.getList();
-        }
+        },
     }
 </script>
