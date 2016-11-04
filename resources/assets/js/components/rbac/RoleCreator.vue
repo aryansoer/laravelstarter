@@ -113,11 +113,13 @@
 
                 this.isLoading = true;
                 this.$http.post(url, dataToSend).then(response => {
-                    toastr.success('The role was created successfully!');
+                    toastr.success(response.data.message);
+
+                    this.$store.state.eventBus.$emit('rbac::role-was-created', response.data.role);
 
                     this.errors = {};
                     this.clearForm();
-                    
+
                     this.isLoading = false;
                 }, response => {
                     toastr.error('Please be careful!');

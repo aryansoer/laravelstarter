@@ -32,7 +32,14 @@ class RoleController extends Controller
 
     public function store(RoleRequest $request)
     {
-        return $request->all();
+        $role = new EntrustRole();
+
+        $role->name = $request->input('name');
+        $role->display_name = $request->input('display_name');
+        $role->description = $request->input('description');
+        $role->save();
+
+        return response()->json(['message' => 'Role was created successfully!', 'role' => $role]);
     }
 
 }

@@ -69,7 +69,14 @@
             },
             chooseRole(role) {
                 this.$store.state.eventBus.$emit('rbac::role-was-chosen', role);
+            },
+            appendCreatedRole(role) {
+                this.list.push(role)
             }
+        },
+
+        created: function () {
+            this.$store.state.eventBus.$on('rbac::role-was-created', this.appendCreatedRole);
         },
 
         mounted() {
