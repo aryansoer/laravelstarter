@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -16,11 +16,22 @@
 
 <script>
     export default {
+        created: function () {
+            this.$store.state.eventBus.$on('rbac::role-was-chosen', this.processRole);
+        },
+
         mounted() {
-            this.$http.get('/').then(function(response){
-                console.log(response.data);
-            });
-            console.log('Component ready.')
+            console.log('I\'m  ready sir!');
+        },
+
+        methods: {
+            checkMessage: function (message) {
+                console.log(message);
+            },
+
+            processRole: function (role_id) {
+                console.log('I\'v caught role id: ' + role_id);
+            }
         }
     }
 </script>

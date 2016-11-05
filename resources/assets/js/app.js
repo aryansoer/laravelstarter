@@ -7,6 +7,23 @@
 
 require('./bootstrap');
 
+
+/**
+ * Second we will define our centralized store. The common state for our components.
+ */
+const store = new Vuex.Store({
+    state: {
+        count: 0,
+        eventBus: new Vue({})
+    },
+
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    }
+})
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the body of the page. From here, you may begin adding components to
@@ -14,7 +31,13 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('roles-list', require('./components/rbac/RolesList.vue'));
+Vue.component('role-creator', require('./components/rbac/RoleCreator.vue'));
+Vue.component('roles-board', require('./components/rbac/RolesBoard.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    // this will inject the store instance to all child components.
+    store
 });

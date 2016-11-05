@@ -168,6 +168,7 @@ return [
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Lord\Laroute\LarouteServiceProvider::class,
         //
 
         /*

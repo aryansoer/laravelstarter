@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('main');;
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['namespace' => 'Rbac', 'prefix' => 'rbac', 'as' => 'rbac::'], function() {
+
+    Route::post('roles', 'RoleController@roles')->name('roles.list');
+    Route::post('store', 'RoleController@store')->name('roles.store');
+    Route::post('roles/permissions', 'RoleController@rolesPermissions')->name('roles.permissions');
+    Route::post('role/{role}/permission/{permission}', 'RoleController@updateRolePermission')->name('role.permission');
+
+});
