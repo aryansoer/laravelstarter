@@ -23,5 +23,7 @@ Route::group(['namespace' => 'Rbac', 'prefix' => 'rbac', 'as' => 'rbac::'], func
 
     Route::post('roles', 'RoleController@roles')->name('roles.list');
     Route::post('store', 'RoleController@store')->name('roles.store');
-    // Controllers Within The "App\Http\Controllers\Admin" Namespace
+    Route::post('roles/permissions', 'RoleController@rolesPermissions')->name('roles.permissions');
+    Route::post('role/{role}/permission/{permission}', 'RoleController@updateRolePermission')->name('role.permission');
+
 });

@@ -7,4 +7,8 @@ use Zizaco\Entrust\EntrustPermission;
 class Permission extends EntrustPermission
 {
 
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
 }

@@ -21,10 +21,10 @@ class RolesTableSeeder extends Seeder
         ]);
 
         DB::table('permissions')->insert([
-            ['name' => 'create-user', 'display_name' => 'User creation'],
-            ['name' => 'update-post', 'display_name' => 'Post updating'],
-            ['name' => 'assign-permission', 'display_name' => 'Permission assigning'],
-            ['name' => 'view-users', 'display_name' => 'Observe system users'],
+            ['name' => 'create-user', 'display_name' => 'Create user'],
+            ['name' => 'update-post', 'display_name' => 'Update post'],
+            ['name' => 'assign-permission', 'display_name' => 'Assign permissions'],
+            ['name' => 'view-users', 'display_name' => 'View users']
         ]);
     }
 }

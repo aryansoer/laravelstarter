@@ -75,7 +75,7 @@
             }
         },
 
-        created: function () {
+        created() {
             this.$store.state.eventBus.$on('rbac::role-was-created', this.appendCreatedRole);
         },
 

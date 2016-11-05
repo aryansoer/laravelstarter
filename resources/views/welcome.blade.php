@@ -26,8 +26,8 @@
             <h3 class="box-title">Blank Box</h3>
         </div>
         <div class="box-body">
-            Welcome To LaravelStarter
             <role-creator box-type="box-success"></role-creator>
+            <roles-board box-type="box-success"></roles-board>
             <roles-list box-type="box-primary"></roles-list>
         </div>
         <!-- /.box-body -->

@@ -33,6 +33,7 @@ const store = new Vuex.Store({
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('roles-list', require('./components/rbac/RolesList.vue'));
 Vue.component('role-creator', require('./components/rbac/RoleCreator.vue'));
+Vue.component('roles-board', require('./components/rbac/RolesBoard.vue'));
 
 const app = new Vue({
     el: '#app',
