@@ -26,8 +26,9 @@
             <h3 class="box-title">Blank Box</h3>
         </div>
         <div class="box-body">
+            <roles-users-board box-type="box-danger"></roles-users-board>
             <role-creator box-type="box-success"></role-creator>
-            <roles-board box-type="box-success"></roles-board>
+            <roles-permissions-board box-type="box-success"></roles-permissions-board>
             <roles-list box-type="box-primary"></roles-list>
         </div>
         <!-- /.box-body -->

@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeAdmin($query)
+    {
+        return $query->where('is_admin', '=', 1);
+    }
 }

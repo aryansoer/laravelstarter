@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Rbac;
 use App\Http\Requests\Rbac\RoleRequest;
 use App\Models\Rbac\Permission;
 use App\Models\Rbac\Role;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Zizaco\Entrust\EntrustRole;
@@ -67,8 +68,9 @@ class RoleController extends Controller
 
         foreach($roles as $role)
         {
-            foreach ($permissions as $perm)
+            foreach ($permissions as $perm) {
                 $board[$role->name][$perm->name] = $role->hasPermission( $perm->name );
+            }
         }
 
         return compact('roles', 'permissions', 'board');
@@ -86,6 +88,34 @@ class RoleController extends Controller
             $role->detachPermission( $perm ) : $role->attachPermission( $perm );
 
         return response()->json(['message' => 'Roles permission was successfully updated!']);
+    }
+
+    /**
+     * @return array
+     */
+    public function rolesUsers()
+    {
+        $roles = Role::all();
+        $users = User::admin()->get();
+
+        $board = [];
+
+        foreach($roles as $role)
+        {
+            foreach ($users as $user) {
+                $board[$role->name][$user->email] = $user->hasRole($role->name);
+            }
+        }
+
+        return compact('roles', 'users', 'board');
+    }
+
+    public function updateUserRole(Request $request, User $user, Role $role)
+    {
+        $user->hasRole($role->name) ?
+            $user->detachRole( $role ) : $user->attachRole( $role );
+
+        return response()->json(['message' => 'Users role was successfully updated!']);
     }
 
 
