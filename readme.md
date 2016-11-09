@@ -1,6 +1,6 @@
 # Laravel Starter
 
-Laravel Starter Template is a web application framework and front end Vue.js framework with initial configuration.
+Laravel Starter is Laravel framework with some initial configuration for [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control) (Role Based Access Control). In FrontEnd, Starter includes compiled RBAC components ([Vue.js](https://vuejs.org)).
 
 ## Installation
 1. `git clone https://github.com/isaevbehruz/laravelstarter lapp`
