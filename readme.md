@@ -13,6 +13,10 @@ Laravel Starter is Laravel framework with some initial configuration for [RBAC](
 8. `php artisan db:seed --class=RolesTableSeeder`
 9. `npm install`
 
+![Screenshot 1](/pc1.PNG?raw=true "RBAC")
+
+![Screenshot 2](/pc2.PNG?raw=true "RBAC")
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
