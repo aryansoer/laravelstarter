@@ -24,6 +24,8 @@ Route::group(['namespace' => 'Rbac', 'prefix' => 'rbac', 'as' => 'rbac::'], func
     Route::post('roles', 'RoleController@roles')->name('roles.list');
     Route::post('roles/store', 'RoleController@store')->name('roles.store');
 
+    Route::post('permissions/store', 'PermissionController@store')->name('permissions.store');
+
     Route::post('roles/permissions', 'RoleController@rolesPermissions')->name('roles.permissions');
     Route::post('role/{role}/permission/{permission}', 'RoleController@updateRolePermission')->name('role.permission');
 

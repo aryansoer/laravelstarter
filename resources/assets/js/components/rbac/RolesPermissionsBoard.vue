@@ -1,5 +1,5 @@
 <template>
-    <div class="box" :class="[boxType]">
+    <div class="box" :class="['box-' + boxType]">
         <div class="box-header with-border">
             <h3 class="box-title">Roles board</h3>
         </div>
@@ -109,6 +109,7 @@
 
         created() {
             this.$store.state.eventBus.$on('rbac::role-was-created', this.getBoard);
+            this.$store.state.eventBus.$on('rbac::permission-was-created', this.getBoard);
         },
 
         mounted() {

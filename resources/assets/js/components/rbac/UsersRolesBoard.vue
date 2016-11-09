@@ -1,5 +1,5 @@
 <template>
-    <div class="box" :class="[boxType]">
+    <div class="box" :class="['box-' + boxType]">
         <div class="box-header with-border">
             <h3 class="box-title">Users board</h3>
         </div>

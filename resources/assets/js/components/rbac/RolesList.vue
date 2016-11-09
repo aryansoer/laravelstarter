@@ -1,5 +1,5 @@
 <template>
-    <div class="box" :class="[boxType]">
+    <div class="box" :class="['box-' + boxType]">
         <div class="box-header with-border">
             <h3 class="box-title">Roles list</h3>
         </div>
@@ -44,7 +44,7 @@
         props: {
             boxType: {
                 type: String,
-                default: 'box-default'
+                default: 'default'
             }
         },
 

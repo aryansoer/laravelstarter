@@ -1,5 +1,5 @@
 <template>
-    <div class="box" :class="[boxType]">
+    <div class="box" :class="['box-' + boxType]">
         <div class="box-body">
             <form role="form" @submit.prevent="onSubmit">
                 <div class="row">
@@ -51,7 +51,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>-</label>
-                            <button type="submit" class="btn btn-primary btn-block" :disabled="isLoading || !isFormFilled">
+                            <button type="submit" class="btn btn-block" :class="['btn-' + boxType]"  :disabled="isLoading || !isFormFilled">
                                 <span v-if="!isLoading">
                                     <i class="fa fa-user"></i> Create user
                                 </span>
@@ -74,7 +74,7 @@
         props: {
             boxType: {
                 type: String,
-                default: 'box-default'
+                default: 'default'
             }
         },
 

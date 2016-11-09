@@ -38,7 +38,7 @@ class UserController extends Controller
     public function usersRoles()
     {
         $roles = Role::all();
-        $users = User::admin()->get();
+        $users = User::admin()->orderBy('id', 'desc')->get();
 
         $board = [];
 

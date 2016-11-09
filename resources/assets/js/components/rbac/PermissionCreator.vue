@@ -55,7 +55,7 @@
                             <label>-</label>
                             <button type="submit" class="btn btn-block" :class="['btn-' + boxType]" :disabled="isLoading || !isFormFilled">
                                 <span v-if="!isLoading">
-                                    <i class="fa fa-plus"></i> Create role
+                                    <i class="fa fa-plus"></i> Create permission
                                 </span>
                                 <span v-else>
                                     <i class="fa fa-refresh fa-spin fa-fw"></i>
@@ -87,11 +87,11 @@
 
         methods: {
             getStoreURL() {
-                return laroute.route('rbac::roles.store');
+                return laroute.route('rbac::permissions.store');
             },
 
             emitCreationEvent(freshObject) {
-                this.$store.state.eventBus.$emit('rbac::role-was-created', freshObject.role);
+                this.$store.state.eventBus.$emit('rbac::permission-was-created', freshObject.permission);
             }
         }
     }

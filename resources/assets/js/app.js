@@ -36,6 +36,7 @@ Vue.component('role-creator', require('./components/rbac/RoleCreator.vue'));
 Vue.component('roles-permissions-board', require('./components/rbac/RolesPermissionsBoard.vue'));
 Vue.component('users-roles-board', require('./components/rbac/UsersRolesBoard.vue'));
 Vue.component('user-creator', require('./components/rbac/UserCreator.vue'));
+Vue.component('permission-creator', require('./components/rbac/PermissionCreator.vue'));
 
 const app = new Vue({
     el: '#app',

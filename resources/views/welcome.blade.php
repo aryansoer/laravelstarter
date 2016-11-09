@@ -26,11 +26,12 @@
             <h3 class="box-title">Blank Box</h3>
         </div>
         <div class="box-body">
-            <user-creator box-type="box-success"></user-creator>
-            <users-roles-board box-type="box-danger"></users-roles-board>
-            <role-creator box-type="box-success"></role-creator>
-            <roles-permissions-board box-type="box-success"></roles-permissions-board>
-            <roles-list box-type="box-primary"></roles-list>
+            <user-creator box-type="default"></user-creator>
+            <users-roles-board box-type="danger"></users-roles-board>
+            <role-creator box-type="success"></role-creator>
+            <permission-creator box-type="warning"></permission-creator>
+            <roles-permissions-board box-type="success"></roles-permissions-board>
+            <roles-list box-type="primary"></roles-list>
         </div>
         <!-- /.box-body -->
     </div>
