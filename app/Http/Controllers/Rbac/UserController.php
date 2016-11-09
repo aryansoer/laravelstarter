@@ -12,8 +12,6 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
-
-
     public function store(UserRequest $request)
     {
         $user = User::create([
@@ -24,7 +22,7 @@ class UserController extends Controller
             'password'  => $this->defaultPassword()
         ]);
 
-        //event(new UserCreated($user));
+        event(new UserCreated($user));
 
         return response()->json(['message' => 'User was created successfully!', 'user' => $user]);
     }
