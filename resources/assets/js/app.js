@@ -34,7 +34,8 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('roles-list', require('./components/rbac/RolesList.vue'));
 Vue.component('role-creator', require('./components/rbac/RoleCreator.vue'));
 Vue.component('roles-permissions-board', require('./components/rbac/RolesPermissionsBoard.vue'));
-Vue.component('roles-users-board', require('./components/rbac/RolesUsersBoard.vue'))
+Vue.component('users-roles-board', require('./components/rbac/UsersRolesBoard.vue'));
+Vue.component('user-creator', require('./components/rbac/UserCreator.vue'));
 
 const app = new Vue({
     el: '#app',

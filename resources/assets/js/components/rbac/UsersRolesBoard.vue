@@ -78,7 +78,7 @@
 
         methods: {
             getBoard() {
-                let url = laroute.route('rbac::roles.users');
+                let url = laroute.route('rbac::users.roles');
 
                 this.isLoading = true;
                 this.$http.post(url).then(response => {
@@ -108,7 +108,7 @@
         },
 
         created() {
-            this.$store.state.eventBus.$on('rbac::role-was-created', this.getBoard);
+            this.$store.state.eventBus.$on('rbac::user-was-created', this.getBoard);
         },
 
         mounted() {

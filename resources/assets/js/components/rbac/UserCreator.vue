@@ -1,20 +1,17 @@
 <template>
     <div class="box" :class="[boxType]">
-        <div class="box-header with-border">
-            <h3 class="box-title">Role creator</h3>
-        </div>
         <div class="box-body">
             <form role="form" @submit.prevent="onSubmit">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group" :class="{'has-error': errors.name }">
-                            <label for="role_name">Name</label>
+                            <label for="user_name">Name</label>
                             <input class="form-control"
                                    v-model.trim="name"
-                                   id="role_name"
-                                   placeholder="Enter role name"
+                                   id="user_name"
+                                   placeholder="Enter user name"
                                    type="text"
-                                   name="role_name"
+                                   name="user_name"
                                    required
                             >
                             <p class="help-block" v-if="errors.name">
@@ -23,42 +20,40 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group" :class="{'has-error': errors.display_name }">
-                            <label for="role_display_name">Display name</label>
+                        <div class="form-group" :class="{'has-error': errors.email }">
+                            <label for="user_email">Email</label>
                             <input class="form-control"
-                                   v-model.trim="display_name"
-                                   id="role_display_name"
-                                   name="role_display_name"
-                                   placeholder="Enter label"
-                                   type="text"
+                                   v-model.trim="email"
+                                   id="user_email"
+                                   name="user_email"
+                                   placeholder="Enter email"
+                                   type="email"
                                    required
                             >
-                            <p class="help-block" v-if="errors.display_name">
-                                {{ errors.display_name[0] }}
+                            <p class="help-block" v-if="errors.email">
+                                {{ errors.email[0] }}
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group" :class="{'has-error': errors.description }">
-                            <label for="role_description">Description</label>
+                    <div class="col-md-3">
+                        <div class="form-group" :class="{'has-error': errors.email }">
+                            <label for="user_email_confirmation">Retype email</label>
                             <input class="form-control"
-                                   v-model.trim="description"
-                                   id="role_description"
-                                   placeholder="Description here"
-                                   type="text"
-                                   name="role_description"
+                                   v-model.trim="emailConfirmation"
+                                   id="user_email_confirmation"
+                                   name="user_email_confirmation"
+                                   placeholder="Email confirmation"
+                                   type="email"
+                                   required
                             >
-                            <p class="help-block" v-if="errors.description">
-                                {{ errors.description[0] }}
-                            </p>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label>-</label>
-                            <button type="submit" class="btn btn-success btn-block" :disabled="isLoading || !isFormFilled">
+                            <button type="submit" class="btn btn-primary btn-block" :disabled="isLoading || !isFormFilled">
                                 <span v-if="!isLoading">
-                                    <i class="fa fa-plus"></i> Create
+                                    <i class="fa fa-user"></i> Create user
                                 </span>
                                 <span v-else>
                                     <i class="fa fa-refresh fa-spin fa-fw"></i>
@@ -86,8 +81,8 @@
         data() {
             return {
                 name: "",
-                display_name: "",
-                description: "",
+                email: "",
+                emailConfirmation: "",
 
                 errors: {},
 
@@ -97,25 +92,25 @@
 
         computed: {
             isFormFilled() {
-                return (this.name.length > 0) && (this.display_name.length > 0);
+                return (this.name.length > 0) && (this.email.length > 0) && (this.emailConfirmation.length > 0);
             }
         },
 
         methods: {
             onSubmit() {
-                let url = laroute.route('rbac::roles.store');
+                let url = laroute.route('rbac::users.store');
 
                 let dataToSend = {
                     name: this.name,
-                    display_name: this.display_name,
-                    description: this.description
+                    email: this.email,
+                    email_confirmation: this.emailConfirmation
                 };
 
                 this.isLoading = true;
                 this.$http.post(url, dataToSend).then(response => {
                     toastr.success(response.data.message);
 
-                    this.$store.state.eventBus.$emit('rbac::role-was-created', response.data.role);
+                    this.$store.state.eventBus.$emit('rbac::user-was-created', response.data.user);
                     this.clearForm();
 
                     this.isLoading = false;
@@ -129,7 +124,7 @@
 
             clearForm() {
                 this.errors = {};
-                this.name = this.display_name = this.description = "";
+                this.name = this.email = this.emailConfirmation = "";
             }
         }
     }
